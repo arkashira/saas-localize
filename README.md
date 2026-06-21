@@ -1,5 +1,5 @@
 # Translator
-A simple translator that takes in text and a target language, and returns the translated text.
+A simple translation tool.
 
 ## Usage
-To use the translator, run the following command:
+Run the translator using the following command:

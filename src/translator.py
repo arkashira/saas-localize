@@ -19,16 +19,16 @@ class Translator:
         target_language = request.target_language
         translated_text = ""
         for word in text.split():
-            if word in self.translations:
-                translated_text += self.translations[word].get(target_language, word) + " "
+            if word in self.translations and target_language in self.translations[word]:
+                translated_text += self.translations[word][target_language] + " "
             else:
                 translated_text += word + " "
         return translated_text.strip()
 
 def main():
     parser = argparse.ArgumentParser(description="Translate text")
-    parser.add_argument("--text", help="Text to translate")
-    parser.add_argument("--target-language", help="Target language")
+    parser.add_argument("--text", type=str, help="Text to translate")
+    parser.add_argument("--target-language", type=str, help="Target language")
     args = parser.parse_args()
     translator = Translator()
     request = TranslationRequest(args.text, args.target_language)

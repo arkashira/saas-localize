@@ -8,9 +8,9 @@ def test_translate_happy_path():
 
 def test_translate_edge_case_unknown_word():
     translator = Translator()
-    request = TranslationRequest("hello foo", "es")
+    request = TranslationRequest("foo bar", "es")
     translated_text = translator.translate(request)
-    assert translated_text == "hola foo"
+    assert translated_text == "foo bar"
 
 def test_translate_edge_case_unknown_language():
     translator = Translator()
